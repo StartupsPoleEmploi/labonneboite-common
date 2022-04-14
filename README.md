@@ -1,0 +1,1 @@
+# labonneboite-common
