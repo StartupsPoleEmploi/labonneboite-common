@@ -2,7 +2,7 @@ from .departements import DEPARTEMENTS
 from unittest import TestCase
 
 
-class Test(TestCase):
+class TestDepartements(TestCase):
 
     def test_deps(self):
         self.assertEqual(len(DEPARTEMENTS), 96)

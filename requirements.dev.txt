@@ -92,6 +92,8 @@ typing-extensions==4.1.1
     #   importlib-metadata
     #   mypy
     #   pylint
+unidecode==0.4.21
+    # via -r requirements.txt
 wheel==0.37.1
     # via pip-tools
 wrapt==1.14.0

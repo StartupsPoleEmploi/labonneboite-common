@@ -3,7 +3,7 @@ PACKAGE_DIR = labonneboite_common
 PIP_COMPILE_ARGS ?=
 
 TESTS_OPTS ?= 
-TESTS = pytest $(TESTS_OPTS)
+TEST = pytest $(TESTS_OPTS)
 TESTS = labonneboite_common/
 
 
@@ -52,4 +52,4 @@ lint:
 # Tests
 # -----
 test: clean-pyc
-	$(TESTS) ${TESTS}
+	$(TEST) ${TESTS}
