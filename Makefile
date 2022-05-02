@@ -45,9 +45,13 @@ clean-services: stop-services ## Delete containers and attached volumes
 # Code quality
 # ------------
 
-# Run pylint on the whole project.
-lint:
-	pylint --rcfile=.pylintrc --reports=no --output-format=colorized $(PACKAGE_DIR)
+lint: lint-flake8 lint-mypy  ## Run lint and type checking
+
+lint-flake8:  ## Run lint
+	flake8 $(PACKAGE_DIR)
+
+lint-mypy:  ## Run type checking
+	mypy $(PACKAGE_DIR)
 
 # Tests
 # -----

@@ -2,8 +2,8 @@ import os
 from setuptools import setup, find_packages
 
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+def read(filename: str) -> str:
+    return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
 packages = find_packages(exclude=('labonneboite_common.tests',))

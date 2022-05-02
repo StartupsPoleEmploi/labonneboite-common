@@ -1,7 +1,9 @@
+from typing import Optional, AnyStr
+
 import unidecode
 
 
-def sanitize_string(s):
+def sanitize_string(s: Optional[AnyStr]) -> Optional[str]:
     """
     Returns a correctly decoded unicode from any given string
 
@@ -40,7 +42,7 @@ def sanitize_string(s):
     raise Exception("not a string nor bytes nor None")
 
 
-def strip_french_accents(u):
+def strip_french_accents(u: str) -> str:
     """
     Remove french accents in unicode
 
@@ -58,4 +60,4 @@ def strip_french_accents(u):
     accented characters we could found were mistakes, the correct websites
     were obtained by stripping accents. This is why we keep this logic.
     """
-    return unidecode.unidecode(u)
+    return str(unidecode.unidecode(u))
