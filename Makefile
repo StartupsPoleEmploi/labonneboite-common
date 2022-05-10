@@ -1,8 +1,6 @@
 PACKAGE_DIR = labonneboite_common
 
-PIP_COMPILE_ARGS ?=
-
-TESTS_OPTS ?= 
+TESTS_OPTS ?=
 TEST = pytest $(TESTS_OPTS)
 TESTS = labonneboite_common/
 
@@ -26,7 +24,7 @@ requirements.dev.txt: requirements.txt
 
 .SUFFIXES: .in .txt
 .in.txt:
-	pip-compile ${PIP_COMPILE_ARGS} -o $@ -v $<
+	pip-compile -o $@ -v $<
 
 # Cleanup
 # -------
