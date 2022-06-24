@@ -51,10 +51,14 @@ class OfficeMixin(PrimitiveOfficeMixin):
     flag_junior = Column(Boolean, default=False, nullable=False, server_default=sql.expression.false())
     flag_senior = Column(Boolean, default=False, nullable=False, server_default=sql.expression.false())
     flag_handicap = Column(Boolean, default=False, nullable=False, server_default=sql.expression.false())
-    score = Column(Integer, default=0, nullable=False, server_default='0')
     score_alternance = Column(Integer, default=0, nullable=False, server_default='0')
     x = Column('coordinates_x', Float)  # Longitude.
     y = Column('coordinates_y', Float)  # Latitude.
+    hiring = Column(Integer, default=0, nullable=False, server_default='0')
+
+    @property
+    def score(self) -> 'Decimal':
+        raise NotImplementedError()
 
     @property
     def longitude(self) -> 'Decimal':
@@ -75,4 +79,3 @@ class FinalOfficeMixin(OfficeMixin):
     """
     # A flag that is True if the office also recruits beyond the boundaries of its primary geolocation.
     has_multi_geolocations = Column(Boolean, default=False, nullable=False, server_default=sql.expression.false())
-
