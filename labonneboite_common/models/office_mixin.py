@@ -1,5 +1,10 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import Column, Integer, String, Float, Boolean, sql
 from sqlalchemy.dialects import mysql
+
+if TYPE_CHECKING:
+    from decimal import Decimal
 
 
 class PrimitiveOfficeMixin(object):
@@ -52,11 +57,11 @@ class OfficeMixin(PrimitiveOfficeMixin):
     y = Column('coordinates_y', Float)  # Latitude.
 
     @property
-    def longitude(self):
+    def longitude(self) -> 'Decimal':
         return self.x
 
     @property
-    def latitude(self):
+    def latitude(self) -> 'Decimal':
         return self.y
 
 
