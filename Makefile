@@ -9,8 +9,7 @@ init: init-venv
 
 init-venv:
 	@test -n "${VENV}${VIRTUAL_ENV}" -a \( -e "${VENV}" -o -e "${VIRTUAL_ENV}" \) || (echo 'You are not in a virtual env. Continue ? ' && read r)
-	pip install --upgrade pip
-	pip install pip-tools
+	pip install "pip>=22" pip-tools
 	${MAKE} requirements.dev.txt
 	pip-sync requirements.dev.txt
 
