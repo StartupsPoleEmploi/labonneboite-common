@@ -1,0 +1,27 @@
+stages:
+  - build
+  - tests
+  - publish
+
+# # build the application
+# build:
+#   stage: build
+#   script:
+#     - bash .execute.sh deploy /tmp/id_rsa "$IP_PROD" "$ENV_PROD";
+
+# test it
+tests:
+  stage: tests
+  image: python:3.6-slim-buster
+  rules:
+    - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
+      changes:
+        - labonneboite_common/**/*
+  script:
+    - pip install -r requirements.dev.txt
+    - cd labonneboite_common/
+    - mypy labonneboite_common/ --exclude tests| echo 'FAILED LINT'
+    - pytest
+# # publish
+# publish:
+#   stage: publish
