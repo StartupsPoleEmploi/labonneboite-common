@@ -4,7 +4,7 @@ set -ex
 mkdir testResults
 
 # quality
-poetry run flake8 --output-file testResults/flake8.txt
+poetry run flake8 --output-file testResults/flake8.txt || echo FAILED flake8
 poetry run flake8_junit testResults/flake8.txt testResults/flake8.xml
 rm testResults/flake8.txt
 
