@@ -5,6 +5,7 @@ pip-tools
 # quality-check
 flake8
 flake8-pylint
+flake8-junit-report
 mypy
 
 # formatting
@@ -15,6 +16,7 @@ isort
 coverage
 pytest
 pytest-env
+
 
 # typing
 types-setuptools
