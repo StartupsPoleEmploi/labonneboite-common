@@ -4,9 +4,6 @@ stages:
 
 python-publish:
   stage: publish
-  variables:
-    PACKAGE_NAME: labonneboite-common
-    PACKAGE_VERSION: $CI_COMMIT_TAG
   before_script:
     - chmod +x ./scripts/python_install.sh
     - ./scripts/python_install.sh

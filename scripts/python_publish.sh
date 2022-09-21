@@ -5,5 +5,5 @@ set -e
 poetry version $CI_COMMIT_TAG
 
 # build the package
-poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+poetry publish --build --username __token__ --password $PYPI_TOKEN
 
