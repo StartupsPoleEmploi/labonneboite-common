@@ -21,3 +21,7 @@ pytest-env
 # typing
 types-setuptools
 sqlalchemy-stubs
+
+# publishing
+build
+twine

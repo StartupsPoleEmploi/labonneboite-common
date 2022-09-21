@@ -1,6 +1,8 @@
 # /bin/bash
 set -e
 
+poetry install
+
 mkdir testResults
 
 # quality
@@ -14,4 +16,5 @@ pytest --verbose --junitxml=testResults/pytest.xml
 # coverage
 coverage run -m pytest --verbose --junitxml=testResults/coverage.xml
 
-
+# build the package
+poetry build
