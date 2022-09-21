@@ -13,10 +13,10 @@ tests:
         - labonneboite_common/**/*
   before_script:
     - pip install -r requirements.dev.txt
-    - ls
+    - ls -a
   script:
-    - chmod +x .ci/python-test.sh
-    - .ci/python-test.sh
+    - chmod +x ci/python-test.sh
+    - ci/python-test.sh
   artifacts:
     untracked: false
     expire_in: "30 days"

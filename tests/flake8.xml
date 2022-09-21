@@ -1,2 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<testsuite errors="1" failures="0" name="flake8" tests="1" time="1"><testcase name="labonneboite_common/chunk.py"><failure col="20" file="labonneboite_common/chunk.py" line="11" message="E203 whitespace before ':'" type="flake8 E203">11:20 E203 whitespace before ':'</failure></testcase></testsuite>
