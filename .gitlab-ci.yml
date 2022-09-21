@@ -13,6 +13,14 @@ tests:
         - labonneboite_common/**/*
   before_script:
     - pip install -r requirements.dev.txt
+    - ls
   script:
     - chmod +x .ci/python-test.sh
     - .ci/python-test.sh
+  artifacts:
+    untracked: false
+    expire_in: "30 days"
+    reports:
+      junit:
+        - "**/testResults/*.xml"
+  allow_failure: false
