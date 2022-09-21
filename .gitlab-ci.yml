@@ -8,11 +8,11 @@ python-publish:
     PACKAGE_NAME: labonneboite-common
     PACKAGE_VERSION: $CI_COMMIT_TAG
   before_script:
-    - chmod +x ../scripts/python_install.sh
-    - ../scripts/python_install.sh
+    - chmod +x ./scripts/python_install.sh
+    - ./scripts/python_install.sh
   script:
-    - chmod +x ../scripts/python_publish.sh
-    - ../scripts/python_publish.sh
+    - chmod +x ./scripts/python_publish.sh
+    - ./scripts/python_publish.sh
   rules:
     - if: $CI_COMMIT_TAG =~ /^\d+\.\d+\.\d+(\+.*)?$/
 
@@ -20,8 +20,8 @@ python-tests:
   stage: quality
   image: python:3.6-slim-buster
   before_script:
-    - chmod +x ../scripts/python_install.sh
-    - ../scripts/python_install.sh
+    - chmod +x ./scripts/python_install.sh
+    - ./scripts/python_install.sh
   script:
     - chmod +x ./scripts/python_quality.sh
     - ./scripts/python_quality.sh
