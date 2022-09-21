@@ -4,17 +4,17 @@ stages:
   - publish
 
 # test it
-python-build:
-  stage: quality
-  before_script:
-    - pip install -r requirements.dev.txt
-  script:
-    - chmod +x ./ci/python-package.sh
-    - ./ci/python-package.sh
-  rules:
-    - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
-      changes:
-        - labonneboite_common/**/*
+# python-build:
+#   stage: quality
+#   before_script:
+#     - pip install -r requirements.dev.txt
+#   script:
+#     - chmod +x ./ci/python_quality.sh
+#     - ./ci/python_quality.sh
+#   rules:
+#     - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
+#       changes:
+#         - labonneboite_common/**/*
 
 python-tests:
   stage: quality
@@ -27,8 +27,8 @@ python-tests:
     - pip install -r requirements.dev.txt
     - ls -a
   script:
-    - chmod +x ./ci/python-test.sh
-    - ./ci/python-test.sh
+    - chmod +x ./scripts/python_quality.sh
+    - ./scripts/python_quality.sh
   artifacts:
     untracked: false
     expire_in: "30 days"

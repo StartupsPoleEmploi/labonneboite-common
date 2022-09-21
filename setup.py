@@ -6,16 +6,19 @@ def read(filename: str) -> str:
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
-VERSION = os.environ.get("LBB_COMMON_VERSION", None)
+PACKAGE_NAME = os.environ.get("PACKAGE_NAME", None)
+PACKAGE_VERSION = os.environ.get("PACKAGE_VERSION", None)
 
-if not VERSION:
+if not PACKAGE_NAME:
+    raise ValueError("No NAME was supplied")
+if not PACKAGE_VERSION:
     raise ValueError("No VERSION was supplied")
 
 packages = find_packages(exclude=("labonneboite_common.tests",))
 
 setup(
-    name="labonneboite-common",
-    version="0.1.1",
+    name=PACKAGE_NAME,
+    version=PACKAGE_VERSION,
     author="La Bonne Boite - common library",
     author_email="labonneboite@pole-emploi.fr",
     description="",
