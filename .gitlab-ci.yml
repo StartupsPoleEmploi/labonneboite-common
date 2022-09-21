@@ -8,7 +8,8 @@ python-publish:
     PACKAGE_NAME: labonneboite-common
     PACKAGE_VERSION: $CI_COMMIT_TAG
   before_script:
-    - pip install poetry
+    - chmod +x ../scripts/python_install.sh
+    - ../scripts/python_install.sh
   script:
     - chmod +x ../scripts/python_publish.sh
     - ../scripts/python_publish.sh
@@ -19,7 +20,8 @@ python-tests:
   stage: quality
   image: python:3.6-slim-buster
   before_script:
-    - pip install poetry
+    - chmod +x ../scripts/python_install.sh
+    - ../scripts/python_install.sh
   script:
     - chmod +x ./scripts/python_quality.sh
     - ./scripts/python_quality.sh
