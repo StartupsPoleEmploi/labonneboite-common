@@ -1,34 +1,22 @@
-stages:
-  - quality
-  - publish
+# this part should be common and maintained in another repo
+include:
+  local: ci/devops.gitlab-ci.yml
 
-python-publish:
-  stage: publish
-  before_script:
-    - chmod +x ./scripts/python_install.sh
-    - ./scripts/python_install.sh
-  script:
-    - chmod +x ./scripts/python_publish.sh
-    - ./scripts/python_publish.sh
+# this should be the local file
+pypi-publish:
+  extends: .devops::pypi-publish
   rules:
     - if: $CI_COMMIT_TAG =~ /^\d+\.\d+\.\d+(\+.*)?$/
 
 python-tests:
-  stage: quality
-  image: python:3.6-slim-buster
-  before_script:
-    - chmod +x ./scripts/python_install.sh
-    - ./scripts/python_install.sh
-  script:
-    - chmod +x ./scripts/python_quality.sh
-    - ./scripts/python_quality.sh
-  artifacts:
-    untracked: false
-    expire_in: "30 days"
-    reports:
-      junit:
-        - "**/*.xml"
-  allow_failure: false
+  extends: .devops-python-test
+  rules:
+    - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
+      changes:
+        - labonneboite_common/**/*
+
+sonarqube:
+  extends: .devops::sonarqube
   rules:
     - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
       changes:
