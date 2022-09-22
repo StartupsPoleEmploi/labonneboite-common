@@ -11,7 +11,7 @@ python-tests:
     - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
       changes:
         - labonneboite_common/**/*
-    - if: ( $CI_COMMIT_BRANCH == "main" &&   $CI_PIPELINE_SOURCE != 'schedule'
+    - if: ( $CI_COMMIT_BRANCH == "main" &&   $CI_PIPELINE_SOURCE != 'schedule' )
       changes:
         - labonneboite_common/**/*
 
@@ -22,7 +22,7 @@ sonarqube:
   variables:
     SONAR_PROJECT_KEY: lbb-common
   rules:
-    - if: ( $CI_COMMIT_BRANCH == "main"  &&   $CI_PIPELINE_SOURCE != 'schedule'
+    - if: ( $CI_COMMIT_BRANCH == "main"  &&   $CI_PIPELINE_SOURCE != 'schedule' )
       changes:
         - labonneboite_common/**/*
 
