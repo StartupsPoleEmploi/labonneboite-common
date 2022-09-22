@@ -39,7 +39,7 @@ def sanitize_string(s: Optional[AnyStr]) -> Optional[str]:
         return s
     elif s is None:
         return s  # leave None value untouched
-    raise Exception("not a string nor bytes nor None")
+    raise ValueError("not a string nor bytes nor None")
 
 
 def strip_french_accents(u: str) -> str:
