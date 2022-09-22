@@ -18,6 +18,8 @@ python-tests:
 
 sonarqube:
   extends: .devops::sonarqube
+  needs:
+    - job: python-tests
   variables:
     SONAR_PROJECT_KEY: lbb-common
   rules:
