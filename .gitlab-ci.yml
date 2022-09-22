@@ -18,6 +18,8 @@ python-tests:
 
 sonarqube:
   extends: .devops::sonarqube
+  variables:
+    SONAR_PROJECT_KEY: lbb-common
   rules:
     - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
       changes:
