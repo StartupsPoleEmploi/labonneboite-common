@@ -4,23 +4,13 @@ include:
     file: devops.gitlab-ci.yml
 
 # this should be the local file
-
 python-tests:
   extends: .devops::python-test
-  rules:
-    - if: $CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_TITLE !~ /Draft.*/
-      changes:
-        - labonneboite_common/**/*
-    - if: ( $CI_COMMIT_BRANCH == "main" &&   $CI_PIPELINE_SOURCE != 'schedule' )
-      changes:
-        - labonneboite_common/**/*
 
 sonarqube:
   extends: .devops::sonarqube
   needs:
     - job: python-tests
-  variables:
-    SONAR_PROJECT_KEY: lbb-common
   rules:
     - if: ( $CI_COMMIT_BRANCH == "main"  &&   $CI_PIPELINE_SOURCE != 'schedule' )
       changes:
