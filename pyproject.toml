@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "labonneboite-common"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["La Bonne Boite <labonneboite@pole-emploi.fr>"]
 license  = "GPL-3.0-only"
@@ -9,6 +9,7 @@ readme = "README.md"
 packages = [
     { include = "labonneboite_common" }
 ]
+repository = "https://github.com/StartupsPoleEmploi/labonneboite-common"
 
 [tool.poetry.dependencies]
 python = "^3.6"
@@ -21,7 +22,6 @@ flake8 = "4.0.1"
 flake8-junit-report = "^2.1.0"
 coverage = "6.2"
 pytest-cov = "^3.0.0"
-
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
