@@ -6,8 +6,33 @@
 |_|\__,_|_.__/ \___/|_| |_|_| |_|\___|_.__/ \___/|_|\__\___|
 ```
 
+## About
+
 Common library for labonneboite projects.
 
-See:
-- [labonneboite github](https://github.com/startupsPoleEmploi/labonneboite)
-- [labonneboite importer github](https://github.com/startupsPoleEmploi/lbb-importer)
+
+## How tos
+
+### Tests
+
+```
+make test### Getting started
+
+```
+make init
+
+```
+
+```
+
+### Documentation
+
+The documentation is based on [mkdocs](https://www.mkdocs.org/)
+
+To open the docs:
+
+```
+make documentation
+```
+
+It will be accessible [here](http://127.0.0.1:9999/)
