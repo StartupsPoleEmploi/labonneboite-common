@@ -16,12 +16,7 @@ Common library for labonneboite projects.
 ### Tests
 
 ```
-make test### Getting started
-
-```
-make init
-
-```
+make test
 
 ```
 
