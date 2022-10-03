@@ -6,6 +6,9 @@ include:
 # this should be the local file
 python-tests:
   extends: .devops::python-test
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
   before_script:
     - ls
   rules:
