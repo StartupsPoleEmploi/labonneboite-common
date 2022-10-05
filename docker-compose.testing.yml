@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+
+  app:
+    restart: "no"
+    build:
+      context: .
+      dockerfile: ./docker/v3.10/Dockerfile
+    volumes:
+      - testResults:/app/labonneboite_common/testResults
+    entrypoint: /bin/bash ./entrypoints/test.sh
+
+# the volume to collect testResults xml files should be defined like this
+volumes:
+  testResults: 
+    external: true
