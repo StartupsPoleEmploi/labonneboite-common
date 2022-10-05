@@ -6,7 +6,7 @@ services:
     restart: "no"
     build:
       context: .
-      dockerfile: ./.docker/v3.10/Dockerfile
+      dockerfile: ./docker/v3.10/Dockerfile
     volumes:
       - ./testResults_tmp:/app/labonneboite_common/testResults
     entrypoint: /bin/bash ./entrypoints/test.sh

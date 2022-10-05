@@ -5,6 +5,5 @@ documentation: init-docs
 
 test:
 	docker-compose -f docker-compose.testing.yml down \
-	&& docker-compose -f docker-compose.testing.yml build \
-	&& docker-compose -f docker-compose.testing.yml up --abort-on-container-exit --exit-code-from app
+	&& docker-compose -f docker-compose.testing.yml up --build --abort-on-container-exit --exit-code-from app
 
