@@ -15,6 +15,13 @@ class PrimitiveOfficeMixin(object):
     each time you add/change/remove a field here to keep all models
     in sync.
     """
+    __table_args__ =  (
+        {
+            'mysql_default_charset': 'utf8mb4',
+            'mysql_collate': 'utf8mb4_unicode_ci'
+        },
+    )
+
     siret = Column(String(191))
     company_name = Column('raisonsociale', String(191), nullable=False)
     office_name = Column('enseigne', String(191), default='', nullable=False, server_default="")
