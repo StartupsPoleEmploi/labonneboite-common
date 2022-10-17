@@ -1,10 +1,16 @@
-from typing import TYPE_CHECKING
+from typing import Dict, Tuple, TYPE_CHECKING, Union
 
-from sqlalchemy import Column, Integer, String, Float, Boolean, sql
+from sqlalchemy import Boolean, Column, Float, Integer, sql, String
 from sqlalchemy.dialects import mysql
 
 if TYPE_CHECKING:
     from decimal import Decimal
+
+    from sqlalchemy.sql.base import DialectKWArgs
+
+    TableArgsKwargs = Dict[str, str]
+    TableArgsTuple = Tuple[Union[DialectKWArgs, TableArgsKwargs], ...]
+    TableArgs = Union[TableArgsKwargs, TableArgsTuple]
 
 
 class PrimitiveOfficeMixin(object):
@@ -15,12 +21,7 @@ class PrimitiveOfficeMixin(object):
     each time you add/change/remove a field here to keep all models
     in sync.
     """
-    __table_args__ = (
-        {
-            'mysql_default_charset': 'utf8mb4',
-            'mysql_collate': 'utf8mb4_unicode_ci'
-        },
-    )
+    __table_args__: 'TableArgs' = ({'mysql_default_charset': 'utf8mb4', 'mysql_collate': 'utf8mb4_unicode_ci'},)
 
     siret = Column(String(191))
     company_name = Column('raisonsociale', String(191), nullable=False)
