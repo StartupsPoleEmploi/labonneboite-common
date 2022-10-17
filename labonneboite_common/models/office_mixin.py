@@ -8,9 +8,7 @@ if TYPE_CHECKING:
 
     from sqlalchemy.sql.base import DialectKWArgs
 
-    TableArgsKwargs = Dict[str, str]
-    TableArgsTuple = Tuple[Union[DialectKWArgs, TableArgsKwargs], ...]
-    TableArgs = Union[TableArgsKwargs, TableArgsTuple]
+    TableArgs = Tuple[Union[DialectKWArgs, Dict[str, str]], ...]
 
 
 class PrimitiveOfficeMixin(object):
