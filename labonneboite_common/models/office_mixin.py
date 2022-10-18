@@ -7,8 +7,9 @@ if TYPE_CHECKING:
     from decimal import Decimal
 
     from sqlalchemy.sql.base import DialectKWArgs
+    from sqlalchemy.sql.schema import SchemaItem
 
-    TableArgs = Tuple[Union[DialectKWArgs, Dict[str, str]], ...]
+    TableArgs = Tuple[Union[SchemaItem, DialectKWArgs, Dict[str, str]], ...]
 
 
 class PrimitiveOfficeMixin(object):
