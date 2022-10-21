@@ -4,7 +4,7 @@ include:
     file: devops.gitlab-ci.yml
 
 # this should be the local file
-python-tests:
+📡 python-tests:
   extends: .devops::python-test
   after_script:
     # fix for coverage test not read by sonar
