@@ -4,7 +4,7 @@ include:
     file: devops.gitlab-ci.yml
 
 # this should be the local file
-✅ python-tests:
+python-tests:
   extends: .devops::test
   after_script:
     # fix for coverage test not read by sonar
@@ -19,17 +19,17 @@ include:
         - labonneboite_common/**/*
         - pyproject.toml
 
-📡 sonarqube:
+sonarqube:
   extends: .devops::sonarqube
   needs:
-    - job: ✅ python-tests
+    - job: python-tests
   rules:
     - if: ( $CI_COMMIT_BRANCH == "main"  &&   $CI_PIPELINE_SOURCE != 'schedule' )
       changes:
         - labonneboite_common/**/*
         - pyproject.toml
 
-🥧 pypi-publish:
+pypi-publish:
   extends: .devops::pypi-publish
   rules:
     - if: $CI_COMMIT_TAG =~ /^\d+\.\d+\.\d+(\+.*)?$/
