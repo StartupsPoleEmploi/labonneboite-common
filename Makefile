@@ -5,5 +5,4 @@ help:
 test:
 	docker-compose -f docker-compose.testing.yml up --build --abort-on-container-exit --exit-code-from app; \
 	r=$$?; \
-	docker run --rm -v testResults:/testResults -v ${PWD}:/backup busybox tar -zcvf /backup/testResults.tar.gz /testResults; \
 	exit $$r

@@ -8,10 +8,6 @@ services:
       context: .
       dockerfile: ./docker/v3.10/Dockerfile
     volumes:
-      - testResults:/labonneboite_common/testResults
+      - ./testResults:/labonneboite_common/testResults
     entrypoint: /bin/bash ./entrypoints/test.sh
 
-# the volume to collect testResults xml files should be defined like this
-volumes:
-  testResults: 
-    external: true
