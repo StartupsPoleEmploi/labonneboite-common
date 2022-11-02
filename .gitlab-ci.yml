@@ -16,6 +16,7 @@ python-tests:
       changes:
         - labonneboite_common/**/*
         - pyproject.toml
+        - docker-compose.*.yml
     - if: ( $CI_COMMIT_BRANCH == "main" &&   $CI_PIPELINE_SOURCE != 'schedule' )
       changes:
         - labonneboite_common/**/*
