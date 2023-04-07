@@ -51,8 +51,8 @@ markdown_extensions:
 repo_name: labonneboite-v1-common
 repo_url: https://git.beta.pole-emploi.fr/lbb/lbb-common
 # Do your stuff below
-site_name: La Bonne Boite - Common
-site_description: "Gitlab-CI common jobs used for LBB"
+site_name: La Bonne Boite v1 - Common
+site_description: "La Bonne Boite v1 - Data model and utils"
 site_author: "La Bonne Boite"
 
 nav:
